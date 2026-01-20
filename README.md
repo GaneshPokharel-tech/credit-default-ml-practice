@@ -34,6 +34,8 @@ This is a binary classification problem.
 - Confusion Matrix
 
 ## Project Structure
+
+
 credit-default-ml-practice/
 │
 ├── data/
@@ -45,8 +47,7 @@ credit-default-ml-practice/
 ├── README.md
 └── .gitignore
 
-markdown
-Copy code
+
 
 ## Tech Stack
 - Python
@@ -58,11 +59,12 @@ Copy code
 - Jupyter Notebook
 
 ## How to Run
-```bash
+
 git clone https://github.com/GaneshPokharel-tech/credit-default-ml-practice.git
 cd credit-default-ml-practice
 source venv/bin/activate
 jupyter notebook
-Author
+
+## Author
 Ganesh Pokharel
 GitHub: https://github.com/GaneshPokharel-tech
