@@ -58,12 +58,6 @@ credit-default-ml-practice/
 - Scikit-learn
 - Jupyter Notebook
 
-## How to Run
-
-git clone https://github.com/GaneshPokharel-tech/credit-default-ml-practice.git
-cd credit-default-ml-practice
-source venv/bin/activate
-jupyter notebook
 
 ## Author
 Ganesh Pokharel
