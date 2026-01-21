@@ -1,9 +1,29 @@
-Credit Card Default Prediction (End-to-End ML Project)
-🔍 Problem Statement
+# Credit Card Default Prediction (End-to-End ML Project)
 
-Predict whether a credit card customer will default next month using historical financial and demographic data.
-This is a binary classification problem with imbalanced classes, common in real-world banking systems.
+## Overview
+This project builds an end-to-end machine learning pipeline to predict whether a credit card customer will default on payment next month.  
+The focus is on **real-world ML practices** such as handling imbalanced data, preventing data leakage, and business-driven evaluation.
 
+---
+
+## Problem Statement
+Predict **default payment next month (Yes/No)** using customer demographic and financial history data.  
+This is a **binary classification** problem with a **class imbalance**, commonly seen in banking and credit risk systems.
+
+---
+
+## Dataset
+- Rows: 30,000
+- Columns: 25
+- Target Variable: `default payment next month`
+- Class Distribution:
+  - Non-default (0): ~78%
+  - Default (1): ~22%
+
+---
+
+## Project Structure
+```
 credit-card-default/
 │
 ├── 01_eda_credit_default.ipynb
@@ -14,106 +34,87 @@ credit-card-default/
 ├── processed_credit_card_clients.csv
 ├── requirements.txt
 └── README.md
+```
 
-Workflow & Key Decisions
-1️⃣ Exploratory Data Analysis (EDA)
+---
 
-Dataset size: 30,000 rows × 25 columns
+## Workflow Summary
 
-Target variable is imbalanced (~22% default)
+### 1. Exploratory Data Analysis (EDA)
+- Identified class imbalance in target variable
+- Classified features into categorical, ordinal, and numerical types
+- Confirmed no missing values
 
-Features include:
+> Accuracy alone is misleading for this dataset.
 
-Categorical (SEX, EDUCATION, MARRIAGE)
+---
 
-Ordinal (PAY_0 to PAY_6)
+### 2. Data Cleaning
+- Fixed invalid category values (merged instead of dropped)
+- Removed non-informative ID column
+- Saved cleaned dataset as a reusable CSV
 
-Numerical (LIMIT_BAL, BILL_AMT*, PAY_AMT*)
+---
 
-➡️ Insight: Accuracy alone is misleading for this dataset.
+### 3. Feature Engineering
+- One-Hot Encoding for categorical variables
+- Standard scaling for numerical variables
+- **Train–test split performed before encoding and scaling** to prevent data leakage
 
-2️⃣ Data Cleaning
+---
 
-No missing values
+### 4. Modeling
+- Model: Logistic Regression
+- Class imbalance handled using `class_weight='balanced'`
+- Manual preprocessing used for learning clarity (no pipeline)
 
-Invalid category values corrected (merged, not dropped → avoids data loss)
+---
 
-ID column removed (non-informative)
+## Evaluation
+- Confusion Matrix
+- Precision, Recall, F1-score
 
-➡️ Cleaned data saved as reusable CSV.
+Key result:
+- Recall (Default = 1): ~62%
+- Accuracy: ~68%
 
-3️⃣ Feature Engineering
+> Recall was prioritized to minimize false negatives (missed defaulters).
 
-One-Hot Encoding for categorical variables
+---
 
-Standard scaling for numerical features
+## Business Interpretation
+- **False Negative**: Approving a loan to a defaulter (high financial risk)
+- **False Positive**: Rejecting a good customer (opportunity cost)
 
-Train–Test split done before encoding/scaling to prevent data leakage
+The model is evaluated from a **risk management perspective**, not just accuracy.
 
-➡️ Feature-engineered data kept model-dependent.
+---
 
-4️⃣ Modeling
+## Tech Stack
+- Python
+- Pandas, NumPy
+- Scikit-learn
+- Jupyter Notebook
 
-Model used: Logistic Regression
+---
 
-Handled class imbalance using:
+## How to Run
+1. Clone the repository
+2. Install dependencies from `requirements.txt`
+3. Run notebooks in order:
+   - `01_eda_credit_default.ipynb`
+   - `02_data_cleaning.ipynb`
+   - `03_feature_engineering.ipynb`
+   - `04_modeling.ipynb`
 
-class_weight='balanced'
+---
 
-Evaluation based on:
+## Key Learnings
+- Handling imbalanced datasets
+- Preventing data leakage
+- Manual feature engineering for better understanding
+- Business-oriented model evaluation
 
-Confusion Matrix
+---
 
-Precision, Recall, F1-score
-
-➡️ Business focus:
-
-Recall prioritized to reduce False Negatives (missed defaulters)
-
-📈 Results Summary
-
-Accuracy: ~68%
-
-Recall (Default class): ~62%
-
-Demonstrates trade-off between precision and recall in financial risk modeling
-
-🏦 Business Interpretation
-
-False Negative (FN) → High risk (loan approved to defaulter)
-
-False Positive (FP) → Opportunity cost (good customer rejected)
-
-➡️ Model optimized to minimize financial loss, not maximize accuracy.
-
-🛠️ Tech Stack
-
-Python
-
-Pandas, NumPy
-
-Scikit-learn
-
-Jupyter Notebook
-
-🚀 How to Run
-
-Clone the repository
-
-Install dependencies
-
-Run notebooks in order:
-
-01_eda_credit_default.ipynb → 04_modeling.ipynb
-
-🎯 Key Learning Outcomes
-
-Real-world ML workflow
-
-Handling imbalanced datasets
-
-Preventing data leakage
-
-Business-driven model evaluation
-
-⭐ If you found this useful, feel free to star the repo!
+⭐ Feel free to star the repository if you find it useful!
