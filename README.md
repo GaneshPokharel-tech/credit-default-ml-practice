@@ -116,5 +116,14 @@ The model is evaluated from a **risk management perspective**, not just accuracy
 - Business-oriented model evaluation
 
 ---
+## 🚀 Future Improvements
+- Threshold tuning
+- Class-weight optimization
+- Tree-based models
+- ROC-AUC and PR-AUC evaluation
+
+## 👤 Author
+Ganesh Pokharel  
+Aspiring Data Scientist | Machine Learning Learner
 
 ⭐ Feel free to star the repository if you find it useful!
